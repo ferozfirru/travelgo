@@ -6,43 +6,52 @@ import { Avatar, Card } from 'react-native-elements';
 class ProfileView extends React.Component {
     render() {
         return(
-           <Card containerStyle={{ padding:0, flexDirection:"row" }}>
+           
+          /*<Card containerStyle={{ padding:0, flexDirection:"row" }}>
             <Avatar
       large
-      
-      source={{uri: "https://www.jodilogik.com/wordpress/wp-content/uploads/2016/05/people-1.png"}}
+    //   https://www.jodilogik.com/wordpress/wp-content/uploads/2016/05/people-1.png
+      source={{uri: "about:blank"}}
       onPress={() => console.log("Works!")}
       activeOpacity={0.7}
-    //   containerStyle={{ width:100}}
+      containerStyle={{flex:1}}
     />
-    <Text style={{flex: 2}}>123</Text>
-            </Card>
-           /* <View title="Testing" style={styles.profileStyle}>
-            <View style={{backgroundColor:'#005500',flex:1 }}>
-            <Image style={styles.imageStyle} source={{ uri:'https://www.jodilogik.com/wordpress/wp-content/uploads/2016/05/people-1.png' }}></Image>
+     <View style={{flex:1, width: 50, height: 50, backgroundColor: 'skyblue'}} > 
+     <Text style={{backgroundColor:'#ffff00', color:'red'}}>123534687da8sda654da54d6asd</Text> 
+     </View>            </Card>*/
+           <View title="Testing" style={styles.profileStyle}>
+            <View style={styles.viewSub}>
+                <Image style={styles.imageStyle} source={{ uri:'https://www.incase.com/media/images/icons/gray/profile.png' }}></Image>
             </View>
-            <View style={{backgroundColor:'#005599',flex:2}}>
+            <View style={styles.viewSub}>
                 <Text>Feroz Akbar</Text>
                 <Text>Feroz Akbar</Text>
                 <Text>Feroz Akbar</Text>
             </View>
-            </View>*/
+        </View>
         );
     }
 }
 const styles = {
+    viewSub:{
+        margin:4
+    },
     profileStyle: {
-        
-        flex:1,
-justifyContent: 'space-around',
+        padding:10,
+        marginLeft:15,
+        marginRight:15,
+        //flex:1,
+//justifyContent: 'space-around',
         flexDirection: 'row',
         //flexWrap: 'wrap',
-        backgroundColor: 'red',
+        backgroundColor: 'white',
+        borderTopLeftRadius:10,
+        borderTopRightRadius:10,
 // alignItems: 'flex-start'
     },
     imageStyle : {
-        width: 100,
-        height: 100,
+        width: 70,
+        height: 70,
          
     },
     cardStyle : {
