@@ -1,56 +1,91 @@
-import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Constants } from 'expo';
+import React from 'react';
+import HomeScreen from './screens/HomeScreen';
+import DetailScreen from './screens/DetailScreen';
+import {
+  createStackNavigator,Easing
+} from 'react-navigation';
 
-// You can import from local files
-import AssetExample from './components/AssetExample';
+const fade = (props) => {
+  const {position, scene} = props
 
-// or any pure javascript modules available in npm
-import { Avatar, Card } from 'react-native-elements'; // 0.19.1
-import ProfileView from './components/ProfileView';
-import TrendView from './components/TrendView';
-import SpecialView from './components/SpecialView';
-import NearmeView from './components/NearmeView';
+  const index = scene.index
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-      <ProfileView />
-      <TrendView />
-      <SpecialView />
-      <NearmeView />
-        {/* <Text style={styles.paragraph}>
-          ALll 1235  and watch it change on your phone! Save to get a shareable url.
-        </Text>
-        <Card title="Local Modules">
-        <Avatar
-  small
-  rounded
-  source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
-  onPress={() => console.log("Works!")}
-  activeOpacity={0.7}
-/>
-        </Card> */}
-      </View>
-    );
+  const translateX = 0
+  const translateY = 0
+
+  const opacity = position.interpolate({
+      inputRange: [index - 0.7, index, index + 0.7],
+      outputRange: [0.3, 1, 0.3]
+  })
+
+  return {
+      opacity,
+      transform: [{translateX}, {translateY}]
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    //alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Detail: DetailScreen
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#34495e',
-  },
-});
+  {
+    initialRouteName: 'Home',
+    // headerMode:'none',
+    navigationOptions: {
+      // headerVisible: false,
+    /*  headerStyle: {
+        backgroundColor: "transparent"
+      },*/
+      
+      /*header: {
+        style: { position: "absolute" }
+      }*/
+     /* headerTitleStyle: {
+        fontWeight: "bold",
+        color: "#fff",
+        zIndex: 1,
+        fontSize: 8,
+        lineHeight: 10,
+        fontFamily: "Roboto"
+      },
+      headerTintColor: "#fff"*/
+      // animationEnabled: true
+    },
+    transitionConfig: () => ({
+      screenInterpolator: (props) => {
+        return fade(props)
+    }
+     /* transitionSpec: {
+        duration: 300,
+        easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing,
+      },
+      screenInterpolator: sceneProps => {
+        const { layout, position, scene } = sceneProps;
+        const { index } = scene;
+
+        const height = layout.initHeight;
+        const translateY = position.interpolate({
+          inputRange: [index - 1, index, index + 1],
+          outputRange: [height, 0, 0],
+        });
+
+        const opacity = position.interpolate({
+          inputRange: [index - 1, index - 0.99, index],
+          outputRange: [0, 1, 1],
+        });
+
+        return { opacity, transform: [{ translateY }] };
+      },*/
+    }),
+  }
+);
+
+export default class App extends React.Component {
+  
+  render() {
+    console.log(this.props.navigation);
+    return <RootStack />;
+  }
+}
