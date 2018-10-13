@@ -8,12 +8,18 @@ import AssetExample from './components/AssetExample';
 // or any pure javascript modules available in npm
 import { Avatar, Card } from 'react-native-elements'; // 0.19.1
 import ProfileView from './components/ProfileView';
+import TrendView from './components/TrendView';
+import SpecialView from './components/SpecialView';
+import NearmeView from './components/NearmeView';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
       <ProfileView />
+      <TrendView />
+      <SpecialView />
+      <NearmeView />
         {/* <Text style={styles.paragraph}>
           ALll 1235  and watch it change on your phone! Save to get a shareable url.
         </Text>
