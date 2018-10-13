@@ -24,16 +24,17 @@ const styles = {
         margin:4
     },
     profileStyle: {
-        padding:10,
-        marginLeft:15,
-        marginRight:15,
+        padding:8,
+        marginLeft:5,
+        marginRight:5,
+        /*borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#d6d7da',*/
         //flex:1,
 //justifyContent: 'space-around',
         flexDirection: 'row',
         //flexWrap: 'wrap',
         backgroundColor: 'white',
-        borderTopLeftRadius:10,
-        borderTopRightRadius:10,
 // alignItems: 'flex-start'
     },
     imageStyle : {

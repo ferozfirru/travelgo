@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import SliderView from './SliderView';
+
 
 class SpecialView extends React.Component{
 render(){
 return(
-    <View style={styles.main}>
-    <Text>123</Text>
-    </View>
+    <SliderView title="Special Places" />
 )
 }
 }
