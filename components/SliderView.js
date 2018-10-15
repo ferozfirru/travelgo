@@ -3,10 +3,7 @@ import { View, Text, Image, ScrollView, Button } from 'react-native';
 import Card from './sub/Card';
 
 //import Carousel from 'react-native-snap-carousel';
-const cardinfo ={
-    view:{
-      
-    },
+const cardstyleinfo ={
     image:{
         style:{
             width: 200,
@@ -17,7 +14,16 @@ const cardinfo ={
         },
         textstyle:{
             //background: 'green',
-            color: '#fff'
+            color: '#fff',
+            fontSize: 10,
+            backgroundColor: '#00aaa0', //#f68e4f
+            // padding: 50
+        },
+        textParentstyle:{
+            // padding:3,
+            // marginRight: 40,
+            // paddingLeft: 5,
+            // backgroundColor: '#00aaa0'
         }
     },
     imagefooter:{
@@ -31,17 +37,16 @@ const cardinfo ={
         }
     }
 }
+
+const cardinfo = {};
 class SliderView extends React.Component{
 
     constructor(props){
-         super();
-    //     this.state = {
-    //       errors: []
-    //     }
+        super();
+
         this.props = props;
-    //     this._carousel = {};
-    //     this.init();
-    this.cardinfoarr = [];
+       
+        this.cardinfoarr = [];
       }
     
       
@@ -67,17 +72,30 @@ class SliderView extends React.Component{
     _renderItem () {
         return this.state.items.map( (item,key) => 
             {
-                cardinfo.image.src = item.thumbnail;
-                cardinfo.image.textvalue = item.title;
-                cardinfo.imagefooter.heading = 'Heading';
-                cardinfo.imagefooter.desc = 'Desc';
-                cardinfo.view.navigate = this.props.navigate;
-
-                this.cardinfoarr[key] = cardinfo;
-                // console.log(cardinfo.image.textvalue);
+                cardinfo = {
+                    image : {
+                        src : item.thumbnail,
+                        textvalue : ' Popular ',
+                        style:{
+                            width: this.props.imgWH.width,
+                            height: this.props.imgWH.height,
+                        }
+                    },
+                    imagefooter : {
+                        heading : item.title,
+                        desc : 'Desc',
+                    },
+                    view : {
+                        navigate : this.props.navigate
+                    }
+                } 
+                if(this.props.thisval == 'special')
+                {
+                    
+                }
                 return(
-                    // <Text key={key}>12</Text>  
-                    <Card key={key} cardinfo={item} />
+                    <Card key={key} {...cardinfo} cardstyleinfo={cardstyleinfo}
+                    />
                 )
             }
         );
@@ -86,14 +104,15 @@ class SliderView extends React.Component{
 render(){
 if(this.state.items){
 return(
-    <View style={{flex:1,marginLeft:8,marginRight:8,backgroundColor:'transparent',alignContent:"flex-start"}}>
-        <Text style={{fontFamily: 'Roboto',fontWeight:"bold",fontSize:11}}>{this.props.title}</Text>
+    <View style={{flex:1,backgroundColor:'transparent',alignContent:"flex-start"}}>
         <ScrollView
+        showsHorizontalScrollIndicator={false}
+        // pagingEnabled={true}
         horizontal= {true}
         decelerationRate={0}
-    snapToInterval={200} //your element width
-        snapToAlignment={"center"}
-        style={{backgroundColor:'white',alignContent:"flex-start"}}
+        //snapToInterval={200} //your element width
+       // snapToAlignment={"center"}
+        style={{backgroundColor:'transparent',alignContent:"flex-start"}}
         >
     { this._renderItem() }
         </ScrollView>

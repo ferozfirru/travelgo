@@ -85,7 +85,7 @@ const RootStack = createStackNavigator(
 export default class App extends React.Component {
   
   render() {
-    console.log(this.props.navigation);
+    // console.log(this.props.navigation);
     return <RootStack />;
   }
 }

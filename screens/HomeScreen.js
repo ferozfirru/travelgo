@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, ScrollView } from 'react-native';
 import { Constants } from 'expo';
 
 import ProfileView from '../components/ProfileView';
@@ -15,7 +15,7 @@ class HomeView extends React.Component {
       //console.log(this.props.navigation)
       return (
         <View style={styles.container}>
-          <View style={styles.subcontainer}>
+          <ScrollView style={styles.subcontainer} contentContainerStyle={{justifyContent: 'space-between'}}>
            { /* <ProfileView style={{
               flex:1,
               shadowOffset:{  width: 10,  height: 10,  },
@@ -32,12 +32,13 @@ class HomeView extends React.Component {
               shadowOffset:{  width: 10,  height: 10,  },
               shadowColor: 'black',
               shadowOpacity: 1.0,
+              background: 'blue'
               }} navigation={this.props.navigation}/>
             {this._hr()}
             <SpecialView style={{flex:1}} />
             {this._hr()}
             <NearmeView style={{flex:2}} />
-          </View>
+          </ScrollView>
         </View>
       );
     }
@@ -56,16 +57,17 @@ class HomeView extends React.Component {
       //alignItems: 'center',
       justifyContent: 'space-around',
       paddingTop: Constants.statusBarHeight,
-      backgroundColor: '#ecf0f1',
+      backgroundColor: '#eeebe4',
     },
     subcontainer: {
       flex: 1,
       flexDirection: 'column',
+      
       //alignItems: 'center',
-      justifyContent: 'space-between',
+      
       // paddingTop: Constants.statusBarHeight,
-      backgroundColor: 'white',
-      margin:15,
+      backgroundColor: 'transparent',
+      margin:10,
       borderTopLeftRadius:10,
       borderTopRightRadius:10,
       borderBottomLeftRadius:10,
