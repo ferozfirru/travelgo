@@ -16,12 +16,12 @@ class HomeView extends React.Component {
       return (
         <View style={styles.container}>
           <View style={styles.subcontainer}>
-            <ProfileView style={{
+           { /* <ProfileView style={{
               flex:1,
               shadowOffset:{  width: 10,  height: 10,  },
               shadowColor: 'black',
               shadowOpacity: 1.0,
-              }} />
+              }} />*/ }
             {this._hr()}
             <Button 
             onPress={() => this.props.navigation.navigate('Detail')}
