@@ -16,7 +16,6 @@ class Trendview extends React.Component{
         thisval = "trend"
         />
         </View>
-        
         )
     }
 }
