@@ -5,7 +5,7 @@ const Card = (props) =>{
     // props = props.cardinfo;
         return(
             // <ImageBackground source={{uri:props.image.src}} style={{width:200,height:200}} />
-            <View style={styles.viewmain} onPress={() => this.props.navigation.navigate(props.view.navigate)}>
+            <View style={props.view.style} onPress={() => props.navigation.navigate(props.view.navigate)}>
             <ImageBackground source={{uri:props.image.src}} style={props.image.style} >
             <View style={{flexDirection: 'column-reverse',flex: 1}}>
             <View>
@@ -25,12 +25,7 @@ const Card = (props) =>{
             )
 }
 const styles = {
-    viewmain:{
-        marginRight: 7,
-        backgroundColor: 'white',
-        marginTop: 10
-        // padding: 6
-    },
+    
     footerview:{
             height: 40
     },

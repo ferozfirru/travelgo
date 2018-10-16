@@ -10,8 +10,7 @@ const imagewh ={
 class SpecialView extends React.Component{
 render(){
 return(
-    <View>
-        <Text>Special places</Text>
+    <View style={{marginTop: 10}} >
     <SliderView title="Special Places" 
     imgWH = {imagewh}
     thisval = "special"

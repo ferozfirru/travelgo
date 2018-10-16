@@ -15,11 +15,13 @@ const cardstyleinfo ={
         textstyle:{
             //background: 'green',
             color: '#fff',
-            fontSize: 10,
+            fontSize: 11,
             backgroundColor: '#00aaa0', //#f68e4f
-            // padding: 50
+            flexWrap: "wrap"
         },
         textParentstyle:{
+            flex:1,
+            flexWrap: "wrap"
             // padding:3,
             // marginRight: 40,
             // paddingLeft: 5,
@@ -82,11 +84,21 @@ class SliderView extends React.Component{
                         }
                     },
                     imagefooter : {
-                        heading : item.title,
-                        desc : 'Desc',
+                        heading : 'jkkjhkh jkhkh j kjh kjhas kjh k',
+                        desc : 'd kasl; kal;sdk a;lsk dad',
                     },
                     view : {
-                        navigate : this.props.navigate
+                        navigate : this.props.navigate,
+                        style:{
+                           
+                            marginRight: 7,
+                            backgroundColor: 'white',
+                            // marginTop: 10,
+                            width: this.props.imgWH.width,
+                            height: this.props.imgWH.height+40,
+                            // padding: 6
+                        }
+                        
                     }
                 } 
                 if(this.props.thisval == 'special')
@@ -104,7 +116,8 @@ class SliderView extends React.Component{
 render(){
 if(this.state.items){
 return(
-    <View style={{flex:1,backgroundColor:'transparent',alignContent:"flex-start"}}>
+    <View style={{flex:1,backgroundColor:'transparent',alignContent:"flex-end",flexDirection: "column"}}>
+    <View style={{backgroundColor: 'pink'}}><Text>Special places</Text></View>
         <ScrollView
         showsHorizontalScrollIndicator={false}
         // pagingEnabled={true}
@@ -125,7 +138,7 @@ export default SliderView;
 
 const styles = {
     main:{
-        backgroundColor: 'green'
+        //backgroundColor: 'green'
     },
     title:{
         fontSize: 11.5,

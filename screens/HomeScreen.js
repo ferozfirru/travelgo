@@ -22,21 +22,17 @@ class HomeView extends React.Component {
               shadowColor: 'black',
               shadowOpacity: 1.0,
               }} />*/ }
-            {this._hr()}
+           
             <Button 
             onPress={() => this.props.navigation.navigate('Detail')}
             title="intent"
           />
             <TrendView style={{
-              flex:1,
-              shadowOffset:{  width: 10,  height: 10,  },
-              shadowColor: 'black',
-              shadowOpacity: 1.0,
-              background: 'blue'
+              // marginTop: 10,
               }} navigation={this.props.navigation}/>
-            {this._hr()}
+           
             <SpecialView style={{flex:1}} />
-            {this._hr()}
+           
             <NearmeView style={{flex:2}} />
           </ScrollView>
         </View>

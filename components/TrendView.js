@@ -10,11 +10,12 @@ class Trendview extends React.Component{
   
     render(){
         return(
-            
-        <SliderView style={{backgroundColor: 'orange'}} title="Popular places around the world" navigation={this.props.navigation}
+        <View style={{marginTop: 10}} >
+        <SliderView title="Popular places around the world" navigation={this.props.navigation}
         imgWH = {imagewh}
         thisval = "trend"
         />
+        </View>
         
         )
     }
